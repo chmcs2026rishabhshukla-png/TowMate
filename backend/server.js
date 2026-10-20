@@ -1,4 +1,5 @@
 
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -16,10 +17,21 @@ app.use(express.json());
 // MONGODB CONNECTION
 // ===============================
 
+const MONGODB_URI =
+  process.env.MONGODB_URI || process.env.MONGO_URI;
+
+if (!MONGODB_URI) {
+  console.error("MongoDB connection string is missing.");
+  process.exit(1);
+}
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/towmate")
+  .connect(MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))
-  .catch((error) => console.error("MongoDB Connection Error:", error));
+  .catch((error) => {
+    console.error("MongoDB Connection Error:", error.message);
+    process.exit(1);
+  });
 
 // ===============================
 // BASIC ROUTES
@@ -277,7 +289,6 @@ app.patch("/api/towing-requests/:id/provider", async (req, res) => {
       });
     }
 
-    // Confirm that the provider exists in the database.
     const provider = await TowingProvider.findOne({
       providerName: providerName.trim(),
     });
@@ -618,7 +629,12 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
       Math.sin(deltaLon / 2) ** 2;
 
   const safeA = Math.min(1, Math.max(0, a));
-  return earthRadius * 2 * Math.atan2(Math.sqrt(safeA), Math.sqrt(1 - safeA));
+
+  return (
+    earthRadius *
+    2 *
+    Math.atan2(Math.sqrt(safeA), Math.sqrt(1 - safeA))
+  );
 }
 
 // ===============================
@@ -626,5 +642,5 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 // ===============================
 
 app.listen(PORT, () => {
-  console.log(`TowMate server running at http://localhost:${PORT}`);
+  console.log(`TowMate server running on port ${PORT}`);
 });
