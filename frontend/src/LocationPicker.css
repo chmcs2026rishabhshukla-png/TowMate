@@ -1,0 +1,82 @@
+
+.location-picker {
+  width: 100%;
+  margin: 20px 0;
+  color: #1f2937;
+}
+
+.location-picker-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.location-picker-heading h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.location-picker-heading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.location-button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 16px;
+  background: #0f766e;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-button:hover {
+  background: #115e59;
+}
+
+.location-map {
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  z-index: 0;
+}
+
+.selected-location {
+  margin-top: 12px;
+  padding: 14px;
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.selected-location p {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.location-message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .location-picker-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .location-button {
+    width: 100%;
+  }
+
+  .location-map {
+    height: 300px;
+  }
+}

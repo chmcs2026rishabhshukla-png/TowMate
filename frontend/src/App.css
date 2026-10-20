@@ -1,0 +1,487 @@
+
+/* =========================================
+   TOWMATE - COMPLETE PRESENTATION THEME
+   Colors: Navy + Blue + Teal
+========================================= */
+
+:root {
+  --tm-navy: #101b35;
+  --tm-navy-light: #1b2b4b;
+  --tm-blue: #3478f6;
+  --tm-blue-hover: #245ed0;
+  --tm-teal: #0f766e;
+  --tm-teal-hover: #115e59;
+  --tm-bg: #f4f7fb;
+  --tm-card: #ffffff;
+  --tm-text: #17233b;
+  --tm-muted: #64748b;
+  --tm-border: #e2e8f0;
+  --tm-shadow: 0 8px 24px rgba(16, 27, 53, 0.07);
+}
+
+/* ===== Global ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--tm-bg);
+  color: var(--tm-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--tm-navy);
+  letter-spacing: -0.4px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--tm-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Main Cards ===== */
+
+.card,
+.stat-card,
+.dashboard-card,
+.history-card,
+.provider-card,
+.request-card,
+.nearby-provider-card {
+  background: var(--tm-card);
+  border: 1px solid var(--tm-border);
+  border-radius: 16px;
+  box-shadow: var(--tm-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card,
+.dashboard-card,
+.history-card,
+.provider-card,
+.request-card {
+  padding: 20px;
+}
+
+.stat-card:hover,
+.provider-card:hover,
+.request-card:hover,
+.nearby-provider-card:hover {
+  box-shadow: 0 12px 28px rgba(16, 27, 53, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ===== Buttons ===== */
+
+button,
+.submit-btn,
+.select-provider-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--tm-blue);
+  color: #ffffff;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+.submit-btn:hover,
+.select-provider-btn:hover {
+  background: var(--tm-blue-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== Find Nearby Providers Button ===== */
+
+.find-providers-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--tm-teal);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.find-providers-btn:hover {
+  background: var(--tm-teal-hover);
+}
+
+.find-providers-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Nearby Providers Section ===== */
+
+.nearby-providers-section {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--tm-border);
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.nearby-providers-section > h4 {
+  margin: 0 0 8px;
+  color: var(--tm-navy);
+  font-size: 19px;
+}
+
+.nearby-radius,
+.provider-message {
+  color: var(--tm-muted);
+  font-size: 14px;
+}
+
+.nearby-providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.nearby-provider-card {
+  min-width: 0;
+  padding: 17px;
+  overflow-wrap: anywhere;
+}
+
+.provider-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.provider-card-heading h4 {
+  margin: 0;
+  color: var(--tm-navy);
+  font-size: 16px;
+}
+
+.nearby-provider-card p {
+  margin: 9px 0;
+  color: var(--tm-muted);
+  font-size: 14px;
+}
+
+/* ===== Provider Availability ===== */
+
+.provider-available,
+.provider-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.provider-available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.provider-status.busy {
+  background: #fff4d6;
+  color: #946200;
+}
+
+.provider-status.offline {
+  background: #ffe5e5;
+  color: #b42318;
+}
+
+/* ===== Already Assigned Provider ===== */
+
+.already-selected,
+.provider-assigned {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: #d9f8e9;
+  color: #087443;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== Forms and Inputs ===== */
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  color: var(--tm-text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--tm-blue);
+  box-shadow: 0 0 0 3px rgba(52, 120, 246, 0.14);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+label {
+  color: var(--tm-text);
+  font-weight: 600;
+}
+
+/* ===== Status Badges ===== */
+
+.status-badge,
+.status,
+.badge {
+  display: inline-block;
+  padding: 6px 11px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Pending - Yellow */
+
+.status-pending,
+.status-badge.pending {
+  background: #fff4d6;
+  color: #946200;
+  border-color: #ffe4a0;
+}
+
+/* Accepted - Blue */
+
+.status-accepted,
+.status-badge.accepted {
+  background: #e4edff;
+  color: #245ed0;
+  border-color: #c6d8ff;
+}
+
+/* In Progress - Cyan */
+
+.status-in-progress,
+.status-badge.in-progress {
+  background: #dff7ff;
+  color: #087b9e;
+  border-color: #b6edff;
+}
+
+/* Completed - Green */
+
+.status-completed,
+.status-badge.completed {
+  background: #d9f8e9;
+  color: #087443;
+  border-color: #b1edce;
+}
+
+/* Cancelled and Rejected - Red */
+
+.status-cancelled,
+.status-badge.cancelled,
+.status-rejected,
+.status-badge.rejected {
+  background: #ffe5e5;
+  color: #b42318;
+  border-color: #ffcaca;
+}
+
+/* ===== Dashboard Statistics ===== */
+
+.stat-card h2,
+.stat-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  margin-bottom: 0;
+  color: var(--tm-muted);
+}
+
+.stat-card .stat-value {
+  color: var(--tm-blue);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* ===== Tables and History ===== */
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th {
+  background: #edf3ff;
+  color: var(--tm-navy);
+  font-weight: 700;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--tm-border);
+}
+
+td {
+  color: #334155;
+}
+
+tbody tr:hover td {
+  background: #f8faff;
+}
+
+/* ===== Navigation ===== */
+
+nav button,
+.nav-button {
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav button:hover,
+.nav-button:hover {
+  background: #e8efff;
+  color: var(--tm-blue);
+}
+
+/* ===== Alerts and Messages ===== */
+
+.error,
+.error-message {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #ffe5e5;
+  color: #b42318;
+}
+
+.success,
+.success-message {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #d9f8e9;
+  color: #087443;
+}
+
+/* ===== Map ===== */
+
+.leaflet-container {
+  width: 100%;
+  min-height: 300px;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+/* ===== Focus Accessibility ===== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--tm-teal);
+  outline-offset: 3px;
+}
+
+/* ===== Responsive Layout ===== */
+
+@media (max-width: 768px) {
+  .stat-card,
+  .dashboard-card,
+  .history-card,
+  .provider-card,
+  .request-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .nearby-providers-section {
+    padding: 12px;
+  }
+
+  .nearby-providers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  th,
+  td {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  button {
+    max-width: 100%;
+  }
+}
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
