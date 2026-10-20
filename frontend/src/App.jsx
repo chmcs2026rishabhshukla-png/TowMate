@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import LocationPicker from "./LocationPicker";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://towmate-1.onrender.com";
 
 const emptyForm = {
   customerName: "",
